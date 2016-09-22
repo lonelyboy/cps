@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+    <Target>System.out</Target>
+    <encoder>
+      <pattern>%date [%level] [%thread] %logger{80} [%file : %line] %msg%n</pattern>
+    </encoder>
+  </appender>
+  <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <File>../logs/cps.log</File>
+    <encoder>
+      <pattern>%date [%level] [%thread] %logger{80} [%file : %line] %msg%n</pattern>
+    </encoder>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>../logs/cps.log.%d{yyyy-MM-dd}</fileNamePattern>
+    </rollingPolicy>
+  </appender>
+
+  <!-- 公用框架 -->
+  <logger name="org.springframework" level="ERROR"/>
+  <logger name="org.apache" level="debug"/>
+  <logger name="org.hibernate" level="OFF"/>
+  <logger name="org.quartz.simpl" level="ERROR"/>
+  
+  <!-- log4jdbc日志级别发布时为off 开发调试时可改为 info debug -->
+  <logger name="jdbc.connection" level="OFF"/>
+  <logger name="jdbc.resultset" level="OFF"/>
+  <logger name="jdbc.audit" level="OFF"/>
+  <logger name="jdbc.sqlonly" level="OFF"/>
+  <logger name="jdbc.sqltiming" level="OFF"/>
+  <!-- log4jdbc日志配置 结束 -->
+    
+
+  <!-- 音视频项目发布时日志级别为info -->
+  <root level="info">
+    <!--<appender-ref ref="Console"/>-->
+    <appender-ref ref="FILE"/>
+  </root>
+</configuration>
