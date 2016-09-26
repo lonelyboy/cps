@@ -6,7 +6,7 @@ public class TestUtil {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-	String context =	HttpUtil.gethttpUriContext("http://blog.csdn.net/u010028869/article/details/49780515");
+	String context =	HttpUtil.gethttpUriContext("http://kjh.55128.cn/ssq-history-2013.htm");
 	System.out.println(context);
 	}
 
