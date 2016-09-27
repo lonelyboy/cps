@@ -2,30 +2,35 @@ package com.codemonkey.lonelyboy.cps.base;
 
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
 
 public class BaseDao {
+    public static Logger logger = LoggerFactory.getLogger(BaseDao.class);
+    
+    @Autowired
+	public SqlSessionTemplate sqlSessionTemplate;
 
-	public SqlSessionTemplate template;
+    @Autowired
+	public SqlSessionFactoryBean sqlSessionFactory;
 
-	public SqlSessionFactoryBean factoryBean;
-	
-	public SqlSessionTemplate getTemplate() {
-		return template;
+	public SqlSessionTemplate getSqlSessionTemplate() {
+		return sqlSessionTemplate;
 	}
 
-	public void setTemplate(SqlSessionTemplate template) {
-		this.template = template;
+	public void setSqlSessionTemplate(SqlSessionTemplate sqlSessionTemplate) {
+		this.sqlSessionTemplate = sqlSessionTemplate;
 	}
 
-	public SqlSessionFactoryBean getFactoryBean() {
-		return factoryBean;
+	public SqlSessionFactoryBean getSqlSessionFactory() {
+		return sqlSessionFactory;
 	}
 
-	public void setFactoryBean(SqlSessionFactoryBean factoryBean) {
-		this.factoryBean = factoryBean;
+	public void setSqlSessionFactory(SqlSessionFactoryBean sqlSessionFactory) {
+		this.sqlSessionFactory = sqlSessionFactory;
 	}
-
-	
 	
 	
 }
