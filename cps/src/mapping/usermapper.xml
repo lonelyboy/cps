@@ -5,4 +5,12 @@
   <select id="selectTiger" parameterType="com.codemonkey.lonelyboy.cps.data.bean.Ssq" resultType="int">  
     select * from t_ry where c_id = #{id}  
   </select>  
+  
+  <insert id="saveSsq" parameterType="ssq" >
+      insert into t_ssq(n_h1,n_h2,n_h3,n_h4,n_h5,n_h6,n_ydjsl,dl_ydjje,dl_jc,n_ljsl,dl_ljje,n_wdjsl,dl_wdjje,n_sidjsl,dl_sidjje,n_sdjsl,n_b1,dl_sdjje,n_edjsl,dl_edjje,d_kjsj) 
+      values(#{n_h1},#{n_h2},#{n_h3},#{n_h4},#{n_h5},#{n_h6},
+      #{n_ydjsl},#{dl_ydjje},#{dl_jc},#{n_ljsl},#{dl_ljje},#{n_wdjsl},#{dl_wdjje},
+      #{n_sidjsl},#{dl_sidjje},#{n_sdjsl},#{n_b1},#{dl_sdjje},${n_edjsl},
+      #{dl_edjje},#{d_kjsj});
+  </insert>
 </mapper> 
