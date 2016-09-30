@@ -8,6 +8,7 @@ public class TestUtil {
         // TODO Auto-generated method stub
         String context = ConfigUtil.getProperty("khj.history.web"); //HttpUtil.gethttpUriContext("http://kjh.55128.cn/ssq-history-2013.htm");
         System.out.println(context);
+        System.out.println(Integer.parseInt("09"));
     }
 
 }
