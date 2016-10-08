@@ -16,10 +16,12 @@ public class SsqDao extends BaseDao{
 	public void saveSsq(List<Ssq> ssqList) throws Exception{
 		SqlSession sqlSession = this.sqlSessionFactory.getObject().openSession(ExecutorType.BATCH); 
 		try{
+			
 			sqlSession.insert("saveSsqbatch", ssqList);
 			sqlSession.commit();
 		}catch(Exception e){
 			logger.error("保存双色球数据列表失败",e);
+			sqlSession.rollback();
 		}finally{
 			if(null==sqlSession){
 				sqlSession.close();
