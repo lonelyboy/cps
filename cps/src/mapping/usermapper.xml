@@ -2,29 +2,28 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.samsung.vo.Tiger">  
-  <select id="selectTiger"  parameterType="com.codemonkey.lonelyboy.cps.data.bean.Ssq" resultType="int">  
+  <select id="selectTiger"  parameterType="ssq" resultType="int">  
     select * from t_ry where c_id = #{id}  
   </select>  
   
   <insert id="saveSsqbatch" parameterType="List" >
-      insert into t_ssq(n_h1,n_h2,n_h3,n_h4,n_h5,n_h6,n_ydjsl,dl_ydjje,dl_jc,n_ljsl,dl_ljje,n_wdjsl,dl_wdjje,n_sidjsl,dl_sidjje,n_sdjsl,n_b1,dl_sdjje,n_edjsl,dl_edjje,d_kjsj) 
+      insert into t_ssq(n_h1,n_h2,n_h3,n_h4,n_h5,n_h6,n_b1,d_kjsj,c_qh) 
       values
         <foreach collection="list" item="ssq" index="index" separator=",">
-	      (#{ssq.n_h1},#{ssq.n_h2},#{ssq.n_h3},#{ssq.n_h4},#{ssq.n_h5},#{ssq.n_h6},
-	      #{ssq.n_ydjsl},#{ssq.dl_ydjje},#{ssq.dl_jc},#{ssq.n_ljsl},#{ssq.dl_ljje},
-	      #{ssq.n_wdjsl},#{ssq.dl_wdjje},#{ssq.n_sidjsl},#{ssq.dl_sidjje},#{ssq.n_sdjsl},
-	      #{ssq.n_b1},#{ssq.dl_sdjje},${ssq.n_edjsl},#{ssq.dl_edjje},#{ssq.d_kjsj})
+	      (#{ssq.n_h1},#{ssq.n_h2},#{ssq.n_h3},#{ssq.n_h4},
+	      #{ssq.n_h5},#{ssq.n_h6}, #{ssq.n_b1},#{ssq.d_kjsj},
+	      #{ssq.c_qh})
         </foreach>
   </insert>
   
-  <insert id="saveSsqbatch" parameterType="List" >
-      insert into t_ssq(n_h1,n_h2,n_h3,n_h4,n_h5,n_h6,n_ydjsl,dl_ydjje,dl_jc,n_ljsl,dl_ljje,n_wdjsl,dl_wdjje,n_sidjsl,dl_sidjje,n_sdjsl,n_b1,dl_sdjje,n_edjsl,dl_edjje,d_kjsj) 
-      values
-        <foreach collection="list" item="ssq" index="index" separator=",">
-	      (#{ssq.n_h1},#{ssq.n_h2},#{ssq.n_h3},#{ssq.n_h4},#{ssq.n_h5},#{ssq.n_h6},
-	      #{ssq.n_ydjsl},#{ssq.dl_ydjje},#{ssq.dl_jc},#{ssq.n_ljsl},#{ssq.dl_ljje},
-	      #{ssq.n_wdjsl},#{ssq.dl_wdjje},#{ssq.n_sidjsl},#{ssq.dl_sidjje},#{ssq.n_sdjsl},
-	      #{ssq.n_b1},#{ssq.dl_sdjje},${ssq.n_edjsl},#{ssq.dl_edjje},#{ssq.d_kjsj})
-        </foreach>
-  </insert>
+<!--   <insert id="saveSsqbatch" parameterType="List" > -->
+<!--       insert into t_ssq(n_h1,n_h2,n_h3,n_h4,n_h5,n_h6,n_ydjsl,dl_ydjje,dl_jc,n_ljsl,dl_ljje,n_wdjsl,dl_wdjje,n_sidjsl,dl_sidjje,n_sdjsl,n_b1,dl_sdjje,n_edjsl,dl_edjje,d_kjsj)  -->
+<!--       values -->
+<!--         <foreach collection="list" item="ssq" index="index" separator=","> -->
+<!-- 	      (#{ssq.n_h1},#{ssq.n_h2},#{ssq.n_h3},#{ssq.n_h4},#{ssq.n_h5},#{ssq.n_h6}, -->
+<!-- 	      #{ssq.n_ydjsl},#{ssq.dl_ydjje},#{ssq.dl_jc},#{ssq.n_ljsl},#{ssq.dl_ljje}, -->
+<!-- 	      #{ssq.n_wdjsl},#{ssq.dl_wdjje},#{ssq.n_sidjsl},#{ssq.dl_sidjje},#{ssq.n_sdjsl}, -->
+<!-- 	      #{ssq.n_b1},#{ssq.dl_sdjje},${ssq.n_edjsl},#{ssq.dl_edjje},#{ssq.d_kjsj}) -->
+<!--         </foreach> -->
+<!--   </insert> -->
 </mapper> 

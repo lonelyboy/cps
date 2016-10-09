@@ -16,11 +16,11 @@ import com.codemonkey.lonelyboy.cps.history.data.source.LuckyBallSource;
 
 @Service
 public class SsqHistoryDataDownloadTask {
+	
 	public static Logger logger = LoggerFactory.getLogger(SsqHistoryDataDownloadTask.class);
 	@Autowired
 	private SsqDao dao;
 	
-	@PostConstruct
 	public void init(){
 		logger.info("初始化方法SsqHistoryDataDownloadTask init");
 		List<Ssq> historyData = LuckyBallSource.getSsqHistory();
@@ -30,5 +30,17 @@ public class SsqHistoryDataDownloadTask {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public void getHistoryData(){
+		logger.info("初始化方法SsqHistoryDataDownloadTask init");
+		List<Ssq> historyData = LuckyBallSource.getSsqHistory();
+		try {
+			dao.saveSsq(historyData);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 }

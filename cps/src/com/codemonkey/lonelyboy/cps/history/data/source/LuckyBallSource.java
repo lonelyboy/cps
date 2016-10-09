@@ -16,6 +16,7 @@ import org.htmlparser.util.ParserException;
 import org.htmlparser.util.SimpleNodeIterator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.util.StringUtils;
 
 import com.codemonkey.lonelyboy.cps.common.StringConts;
 import com.codemonkey.lonelyboy.cps.history.data.bean.Ssq;
@@ -63,6 +64,9 @@ public class LuckyBallSource {
         List<Ssq> dataList = new ArrayList<Ssq>();
         String webSite = getWebSite(year, StringConts.PZ_SSQ);
         String html = HttpUtil.gethttpUriContext(webSite);
+        if(StringUtils.isEmpty(html)){
+        	return dataList;
+        }
         Parser htmlParser = Parser.createParser(html, "utf-8");
         HasAttributeFilter filter = new HasAttributeFilter("class", "ballbox");
         try {
